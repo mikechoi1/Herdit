@@ -4,7 +4,7 @@ require('./services/passport');
 const app = express();
 require('./routes/authRoutes')(app);
 
-const pool = process.env.DATABASE_URL ? require('./dbp') : require('./db');
+const pool = require('./db');
 
 //middleware
 app.use(express.json()); //let's us use req.body
