@@ -1,10 +1,6 @@
-const Pool = require('pg').Pool;
-const pool = new Pool({
-    user: 'postgres',
-    password: '',
-    host: 'localhost',
-    port: 5432,
-    database: 'redditclone'
-});
-
-module.exports = pool;
+if(process.env.DATABASE_URL) {
+    module.exports = require('./dbp');
+}
+else {
+    module.exports = require('./dbd');
+}
