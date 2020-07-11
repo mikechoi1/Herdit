@@ -1,4 +1,4 @@
-if(process.env.DATABASE_URL) {
+if(process.env.HEROKU_POSTGRES_ROSE_URL) {
     module.exports = require('./dbp');
 }
 else {
