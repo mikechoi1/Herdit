@@ -4,7 +4,7 @@ require('./services/passport');
 const app = express();
 require('./routes/authRoutes')(app);
 
-const pool = require('./db');
+const pool = require('./services/db');
 
 //middleware
 app.use(express.json()); //let's us use req.body
