@@ -1,8 +1,22 @@
 const express = require('express');
-require('./services/passport');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const keys = require('./config/keys');
 
 const app = express();
+app.use(
+    cookieSession({
+        //how long til expiration: 30 days
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        keys: [keys.cookieKey]
+    })
+);
+//telling passport it should make use of cookies for authentication
+app.use(passport.initialize());
+app.use(passport.session());
+require('./services/passport');
 require('./routes/authRoutes')(app);
+
 
 const pool = require('./services/db');
 
@@ -12,7 +26,7 @@ app.use(express.json()); //let's us use req.body
 //Routes
 
 
-//test route for heroku postgres
+//test route for heroku postgres (delete later)
 app.get('/db', async (req, res) => {
     try {
       const client = await pool.connect();
@@ -44,7 +58,7 @@ app.get('/users', async (req, res) => {
        const allUsers = await pool.query('SELECT * FROM account');
        res.json(allUsers.rows);
     } catch (err) {
-        console.log(err);
+        console.log(err.message);
     }
 })
 //get one
@@ -80,6 +94,18 @@ app.delete('/delete/:id', async (req, res) => {
         console.log(err.message);
     }
 })
+
+
+if(process.env.NODE_ENV === 'production') {
+    // Express will serve up production assets ex: main.js/main.css
+    app.use(express.static('client/build'));
+
+    //express will serve up the index.html file
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
 
 //if production environments are given, otherwise use 5000 (for development)
 const PORT = process.env.PORT || 5000;
