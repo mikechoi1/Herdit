@@ -1,15 +1,21 @@
 import React from 'react';
 import {BrowserRouter, Route } from 'react-router-dom';
 
-import Header from './Header';
+import './App.css';
+import Header from './Header/Header';
 
-const Landing = () => <h2>Landing</h2>;
+const Landing = () => {
+    return (
+        <div style={{height: '1000px', background: '#101010', paddingTop: '40px'}}>
+        </div>
+    );
+};
 const App = () => {
     return (
         <div>
             <BrowserRouter>
                 <div>
-                    <Header/> 
+                    <Header/>
                     <Route exact path='/' component={Landing}/>
                 </div>
             </BrowserRouter>
