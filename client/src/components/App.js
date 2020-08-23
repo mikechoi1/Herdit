@@ -6,7 +6,7 @@ import Header from './Header/Header';
 
 const Landing = () => {
     return (
-        <div style={{height: '1000px', background: '#101010', paddingTop: '40px'}}>
+        <div style={{height: '1000px', background: '#121212', paddingTop: '40px'}}>
         </div>
     );
 };

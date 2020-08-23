@@ -21,10 +21,11 @@ class Header extends Component {
         return (
             <div id='header' className='header sticky'>
                 <div className='logo-box'>
-                        <svg className='logo'>
-                            <use href='img/sprite.svg#icon-home'/>
-                        </svg>
-                    </div>
+                    <svg className='logo-icon'>
+                        <use href='img/sprite.svg#icon-home'/>
+                    </svg>
+                    <span className='nav-right-space'>Herdit</span>
+                </div>
                 <nav className='nav-buttons'>
                     <div className='nav-box'>
                         <svg className='nav-icon'>
@@ -42,7 +43,7 @@ class Header extends Component {
                         <svg className='nav-icon'>
                             <use href='img/sprite.svg#icon-user'/>
                         </svg>
-                        <span className='nav-username'>Mr.Rorschac</span>
+                        <span className='nav-right-space'>Mr.Rorschac</span>
                     </div>
                 </nav>
             </div>
