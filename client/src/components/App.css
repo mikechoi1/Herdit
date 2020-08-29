@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
 body {
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
+}
+
+.link {
+    color: #F5F6F7;
+    text-decoration: none;
 }

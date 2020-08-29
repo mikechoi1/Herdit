@@ -1,26 +1,29 @@
-import React from 'react';
-import {BrowserRouter, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 import './App.css';
 import Header from './Header/Header';
+import Homepage from './Pages/Homepage'
 
-const Landing = () => {
-    return (
-        <div style={{height: '1000px', background: '#121212', paddingTop: '40px'}}>
-        </div>
-    );
-};
-const App = () => {
-    return (
-        <div>
-            <BrowserRouter>
-                <div>
-                    <Header/>
-                    <Route exact path='/' component={Landing}/>
-                </div>
-            </BrowserRouter>
-        </div>
-    );
-};
+class App extends Component {
+    //stadard lifecycle method for calling ajax calls instead of willMount because willMount might be called mult times
+    componentDidMount() {
+        this.props.fetchUser();
+    }
+    render() {
+        return (
+            <div>
+                <BrowserRouter>
+                    <div>
+                        <Header/>
+                        <Route exact path='/' component={Homepage}/>
+                    </div>
+                </BrowserRouter>
+            </div>
+        );
+    }
+}
 
-export default App;
+export default connect(null, actions)(App);
