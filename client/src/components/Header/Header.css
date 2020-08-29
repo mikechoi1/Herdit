@@ -1,10 +1,12 @@
 .header {
     background-color: #1e2125;
-    color: #D7DADC;
+    color: #F5F6F7;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #343536;
+    box-sizing: border-box;
+    padding: 0 1rem;
 }
 .sticky {
     position: fixed;
@@ -20,11 +22,8 @@
     background-color: #303030;
 }
 
-.logo-icon {
-    height: 1.5rem;
-    width: 1.5rem;
-    fill: #D7DADC;
-    margin: 1rem 1rem 1rem 1.75rem;
+.logo-text {
+    margin: 1rem;
 }
 nav div {
     padding: 0 0.7rem;
@@ -32,10 +31,6 @@ nav div {
     display: flex;
     align-items: center;
 }
-nav div:hover {
-    background-color: #303030;
-}
-
 .nav-buttons {
     display: flex;
     align-items: center;
@@ -44,6 +39,9 @@ nav div:hover {
 .nav-box {
     position: relative;
     cursor: pointer;
+}
+.nav-box:hover {
+    background-color: #303030;
 }
 .nav-icon {
     height: 1.5rem;
@@ -63,7 +61,4 @@ nav div:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.nav-right-space {
-    margin-right: 1.5rem;
 }

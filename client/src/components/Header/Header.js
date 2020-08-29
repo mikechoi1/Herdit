@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 class Header extends Component {
@@ -17,38 +19,53 @@ class Header extends Component {
     //     }
     // }
 
+    renderContent() {
+        switch(this.props.auth) {
+            case null:
+                return;
+            case false:
+                return (
+                        <div className='logo-box'>
+                            <a href="/auth/google" className='link logo-text'>Login With Google</a>
+                        </div>
+                );
+            default:
+                return (
+                    <nav className='nav-buttons'>
+                        <div className='nav-box'>
+                            <svg className='nav-icon'>
+                                <use href='img/sprite.svg#icon-chat'/>
+                            </svg>
+                            <span className='notification'>5</span>
+                        </div>
+                        <div className='nav-box'>
+                            <svg className='nav-icon'>
+                                <use href='img/sprite.svg#icon-mail'/>
+                            </svg>
+                            <span className='notification'>10</span>
+                        </div>
+                        <div className='nav-box'>
+                            <span><a href="/api/logout" className='link logo-text'>Logout</a></span>
+                        </div>
+                    </nav>
+                );
+        }
+    }
+
     render() {
         return (
             <div id='header' className='header sticky'>
                 <div className='logo-box'>
-                    <svg className='logo-icon'>
-                        <use href='img/sprite.svg#icon-home'/>
-                    </svg>
-                    <span className='nav-right-space'>Herdit</span>
+                    <span className='logo-text'><Link to='/' className='link logo-text'>Herdit</Link></span>
                 </div>
-                <nav className='nav-buttons'>
-                    <div className='nav-box'>
-                        <svg className='nav-icon'>
-                            <use href='img/sprite.svg#icon-chat'/>
-                        </svg>
-                        <span className='notification'>5</span>
-                    </div>
-                    <div className='nav-box'>
-                        <svg className='nav-icon'>
-                            <use href='img/sprite.svg#icon-mail'/>
-                        </svg>
-                        <span className='notification'>10</span>
-                    </div>
-                    <div className='nav-box'>
-                        <svg className='nav-icon'>
-                            <use href='img/sprite.svg#icon-user'/>
-                        </svg>
-                        <span className='nav-right-space'>Mr.Rorschac</span>
-                    </div>
-                </nav>
+                {this.renderContent()}
             </div>
         );
     }
 }
 
-export default Header;
+function mapStateToProps({ auth }) {
+    return { auth };
+}
+
+export default connect(mapStateToProps)(Header);
