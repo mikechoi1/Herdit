@@ -56,7 +56,7 @@ class Header extends Component {
         return (
             <div className='header sticky'>
                 <div className='logo-box'>
-                    <span className='logo-text'><Link to='/' className='link logo-text'>Herdit</Link></span>
+                    <Link to='/' className='link logo-text'>Herdit</Link>
                 </div>
                 {this.renderContent()}
             </div>
