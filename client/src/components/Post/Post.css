@@ -1,0 +1,68 @@
+.post-elements {
+    display: flex;
+    padding: 0.25rem;
+    border: 1px solid #343536;
+    cursor: pointer;
+}
+.post-elements:hover {
+    border: 1px solid #AAA;
+}
+.vertical-align {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.padding-2-h {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.rating-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: #FFF;
+}
+.upvote:hover {
+    fill: green;
+}
+.downvote:hover {
+    fill: #cc3700;
+}
+.post-title {
+    font-weight: 600;
+    margin-right: auto;
+}
+.post-title:hover {
+    text-decoration: underline;
+}
+.post-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.post-info {
+    font-weight: 300;
+    color: #838383;
+    font-size: 0.8rem;
+}
+.subpage {
+    color: #eeeeee;
+}
+.pr-05 {
+    padding-right: 0.5rem;
+}
+.user:hover {
+    text-decoration: underline;
+}
+.subpage:hover {
+    text-decoration: underline;
+}
+.horizontal-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.post-comment {
+    font-weight: 300;
+    font-size: 0.8rem;
+}

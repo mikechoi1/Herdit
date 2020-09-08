@@ -54,7 +54,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div id='header' className='header sticky'>
+            <div className='header sticky'>
                 <div className='logo-box'>
                     <span className='logo-text'><Link to='/' className='link logo-text'>Herdit</Link></span>
                 </div>
