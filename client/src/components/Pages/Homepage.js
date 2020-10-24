@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Post from '../Post/Post';
+import PostList from '../Post/PostList';
 
 class Homepage extends Component {
     renderContent() {
@@ -18,13 +18,7 @@ class Homepage extends Component {
         return (
             <div style={{height: '1000px', background: '#121212', padding: '60px 20px 0 20px', color: 'white'}}>
                 {this.renderContent()}
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                <PostList />
             </div>
         );
     }
