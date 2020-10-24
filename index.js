@@ -26,6 +26,15 @@ app.use(express.json()); //let's us use req.body
 //Routes
 
 
+app.get('/api/posts', async (req, res) => {
+    try {
+        const posts = await pool.query('SELECT * FROM posts');
+        res.send(posts.rows);
+    } catch (err) {
+        console.log(err.message);
+    }
+})
+
 //test route for heroku postgres (delete later)
 app.get('/db', async (req, res) => {
     try {
@@ -38,7 +47,7 @@ app.get('/db', async (req, res) => {
       console.error(err);
       res.send("Error " + err);
     }
-  })
+})
 
 //create
 app.post('/add', async(req, res) => {
