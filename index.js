@@ -16,6 +16,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 require('./services/passport');
 require('./routes/authRoutes')(app);
+require('./routes/postRoutes')(app);
 
 
 const pool = require('./services/db');
@@ -24,17 +25,6 @@ const pool = require('./services/db');
 app.use(express.json()); //let's us use req.body
 
 //Routes
-
-
-app.get('/api/posts', async (req, res) => {
-    try {
-        const posts = await pool.query('SELECT * FROM posts');
-        res.send(posts.rows);
-    } catch (err) {
-        console.log(err.message);
-    }
-})
-
 //test route for heroku postgres (delete later)
 app.get('/db', async (req, res) => {
     try {

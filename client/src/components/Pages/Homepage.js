@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import PostList from '../Post/PostList';
 
@@ -14,10 +15,15 @@ class Homepage extends Component {
                 return <h1>Hi, {this.props.auth.displayname}</h1>
         }
     }
+    addPost() {
+        
+    }
+
     render() {
         return (
             <div style={{height: '1000px', background: '#121212', padding: '60px 20px 0 20px', color: 'white'}}>
                 {this.renderContent()}
+                <div style={{marginBottom: '25px'}}><Link to='/posts/add' className='link' style={{border: '1px solid white', borderRadius: '5px', padding: '7px'}}>Add Post</Link></div>
                 <PostList />
             </div>
         );
