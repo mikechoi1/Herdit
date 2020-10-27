@@ -31,7 +31,7 @@ class PostList extends Component {
     }
 }
 
-function mapStateToProps({ post }) {
-    return { post };
+function mapStateToProps({ posts }) {
+    return { posts };
 }
 export default connect(mapStateToProps, { fetchPosts } )(PostList);

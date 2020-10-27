@@ -15,9 +15,6 @@ class Homepage extends Component {
                 return <h1>Hi, {this.props.auth.displayname}</h1>
         }
     }
-    addPost() {
-        
-    }
 
     render() {
         return (

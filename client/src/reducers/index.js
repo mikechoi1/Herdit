@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
+import { reducer as reduxForm } from 'redux-form';
 import authReducer from './authReducer';
-import postReducer from './postReducer';
+import postsReducer from './postsReducer';
 
 export default combineReducers( {
     auth: authReducer,
-    post: postReducer
+    posts: postsReducer,
+    //"form" keyword is reserved for redux-form but can be changed
+    form: reduxForm
 });
