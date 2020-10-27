@@ -34,13 +34,13 @@ class Header extends Component {
                     <nav className='nav-buttons'>
                         <div className='nav-box'>
                             <svg className='nav-icon'>
-                                <use href='img/sprite.svg#icon-chat'/>
+                                <use href='/img/sprite.svg#icon-chat'/>
                             </svg>
                             <span className='notification'>5</span>
                         </div>
                         <div className='nav-box'>
                             <svg className='nav-icon'>
-                                <use href='img/sprite.svg#icon-mail'/>
+                                <use href='/img/sprite.svg#icon-mail'/>
                             </svg>
                             <span className='notification'>10</span>
                         </div>
