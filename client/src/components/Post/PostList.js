@@ -10,7 +10,7 @@ class PostList extends Component {
     }
     renderPosts() {
         return <div>
-            {this.props.post.reverse().map((post, i) => (
+            {this.props.posts.reverse().map((post, i) => (
             <Post key={i}
                 title = {post.title}
                 subpage = {post.subpage}

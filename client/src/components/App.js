@@ -6,12 +6,7 @@ import * as actions from '../actions';
 import './App.css';
 import Header from './Header/Header';
 import Homepage from './Pages/Homepage';
-
-const addPost = () => {
-    return(
-        <div style={{height: '1000px', background: '#121212', padding: '70px 20px 0 20px', color: 'white'}}>Add Post</div>
-    );
-}
+import PostNew from './Post/PostNew';
 
 class App extends Component {
     //stadard lifecycle method for calling ajax calls instead of willMount because willMount might be called mult times
@@ -26,7 +21,7 @@ class App extends Component {
                     <div>
                         <Header/>
                         <Route exact path='/' component={Homepage}/>
-                        <Route path='/posts/add' component={addPost} />
+                        <Route path='/posts/add' component={PostNew} />
                     </div>
                 </BrowserRouter>
             </div>
