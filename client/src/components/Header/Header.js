@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 class Header extends Component {
-    // header;
-    // height;
 
     //might need if we want to have announcements above header
     // componentDidMount() {
