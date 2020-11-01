@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 //reduxForm is similar to that of connect function from redux
 import { reduxForm, Field } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 class PostForm extends Component {
     render() {
@@ -16,6 +17,9 @@ class PostForm extends Component {
                         //component = how Field should appear
                         component='input'
                     />
+                    <Link to='/' className='link' style={{border: '1px solid white', borderRadius: '3px'}}>
+                        Cancel
+                    </Link>
                     <button type='submit'>Submit</button>
                 </form>
             </div>
