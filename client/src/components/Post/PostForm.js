@@ -11,7 +11,9 @@ class PostForm extends Component {
                 <label>{label}</label>
                 <div>
                     <textarea {...input} type={type} />
-                    {touched && error}
+                    <div style={{color: 'red', marginBottom: '10px'}}>
+                        {touched && error}
+                    </div>
                 </div>
             </div>
         );
