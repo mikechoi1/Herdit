@@ -5,6 +5,18 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 
 class PostForm extends Component {
+    renderField({ input, label, type, meta: { touched, error } }) {
+        return(
+            <div>
+                <label>{label}</label>
+                <div>
+                    <textarea {...input} type={type} />
+                    {touched && error}
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return(
             <div style={{height: '1000px', background: '#121212', padding: '70px 20px 0 20px', color: 'white'}}>
@@ -15,7 +27,14 @@ class PostForm extends Component {
                         //name = name of value storing input
                         name='postTitle'
                         //component = how Field should appear
-                        component='input'
+                        component={this.renderField}
+                        label='Title'
+                    />
+                    <Field
+                        type='text'
+                        name='postBody'
+                        component={this.renderField}
+                        label='Body'
                     />
                     <Link to='/' className='link' style={{border: '1px solid white', borderRadius: '3px'}}>
                         Cancel
@@ -26,7 +45,19 @@ class PostForm extends Component {
         );
     }
 }
+
+function validate(values) {
+    const errors ={};
+    //redux looks at properties on error object and it matches one of the fields, redux will automatically send it as prop
+    //to our component
+    if(!values.postTitle) {
+        errors.postTitle = 'You must provide a title';
+    }
+    return errors;
+}
+
 export default reduxForm({
+    validate,
     //'form' property is necessary
     form: 'PostForm'
 })(PostForm);
