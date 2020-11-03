@@ -55,6 +55,9 @@ function validate(values) {
     if(!values.postTitle) {
         errors.postTitle = 'You must provide a title';
     }
+    if(!values.postBody) {
+        errors.postBody = 'You must provide some content';
+    }
     return errors;
 }
 
