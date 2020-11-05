@@ -54,10 +54,10 @@ function validate(values) {
     //redux looks at properties on error object and it matches one of the fields, redux will automatically send it as prop
     //to our component
     if(!values.postTitle) {
-        errors.postTitle = 'You must provide a title';
+        errors.postTitle = 'Can\'t be left blank';
     }
     if(!values.postBody) {
-        errors.postBody = 'You must provide some content';
+        errors.postBody = 'Can\'t be left blank';
     }
     return errors;
 }
