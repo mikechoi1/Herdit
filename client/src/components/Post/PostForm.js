@@ -24,6 +24,7 @@ class PostForm extends Component {
             <div style={{height: '1000px', background: '#121212', padding: '70px 20px 0 20px', color: 'white'}}>
                 {/* handleSubmit is given by reduxForm and will run the function we give it whenever we submit the form */}
                 {/* TODO: handle onSubmit properly */}
+                <div>Creating a New Post</div>
                 <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
                     <Field
                         type='text'
@@ -42,7 +43,7 @@ class PostForm extends Component {
                     <Link to='/' className='link' style={{border: '1px solid white', borderRadius: '3px'}}>
                         Cancel
                     </Link>
-                    <button type='submit'>Create Post</button>
+                    <button type='submit'>Create</button>
                 </form>
             </div>
         );
