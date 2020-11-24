@@ -37,7 +37,7 @@ class PostForm extends Component {
                     <Link to='/' className='link' style={{border: '1px solid white', borderRadius: '3px'}}>
                         Cancel
                     </Link>
-                    <button type='submit'>Create</button>
+                    <button type='submit'>Review</button>
                 </form>
             </div>
         );
