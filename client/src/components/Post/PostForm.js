@@ -23,9 +23,9 @@ class PostForm extends Component {
         return(
             <div style={{height: '1000px', background: '#121212', padding: '70px 20px 0 20px', color: 'white'}}>
                 {/* handleSubmit is given by reduxForm and will run the function we give it whenever we submit the form */}
-                {/* TODO: handle onSubmit properly */}
                 <div>Creating a New Post</div>
-                <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+                                                        {/* () => function() === function */}
+                <form onSubmit={this.props.handleSubmit(this.props.onPostSubmit)}>
                     <Field
                         type='text'
                         //name = name of value storing input
