@@ -1,22 +1,29 @@
 //PostForm shows a form for user to add input
+import _ from 'lodash';
 import React, { Component } from 'react';
 //reduxForm is similar to that of connect function from redux
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
+import PostField from './PostField';
+import formFields from './formFields';
 
 class PostForm extends Component {
-    renderField({ input, label, type, meta: { touched, error } }) {
-        return(
-            <div>
-                <label>{label}</label>
-                <div>
-                    <textarea {...input} type={type} />
-                    <div style={{color: 'red', marginBottom: '10px'}}>
-                        {touched && error}
-                    </div>
-                </div>
-            </div>
-        );
+    
+    renderFields() {
+                                //2nd argument: each field in formFields 
+        return _.map(formFields, ({label, name}) => {
+            return (
+                <Field
+                    key={name}
+                    type='text'
+                    //name = name of value storing input
+                    name={name}
+                    //component = how Field should appear
+                    component={PostField}
+                    label={label}
+                />
+            );
+        })
     }
 
     render() {
@@ -26,20 +33,7 @@ class PostForm extends Component {
                 <div>Creating a New Post</div>
                                                         {/* () => function() === function */}
                 <form onSubmit={this.props.handleSubmit(this.props.onPostSubmit)}>
-                    <Field
-                        type='text'
-                        //name = name of value storing input
-                        name='postTitle'
-                        //component = how Field should appear
-                        component={this.renderField}
-                        label='Title'
-                    />
-                    <Field
-                        type='text'
-                        name='postBody'
-                        component={this.renderField}
-                        label='Body'
-                    />
+                    {this.renderFields()}
                     <Link to='/' className='link' style={{border: '1px solid white', borderRadius: '3px'}}>
                         Cancel
                     </Link>
@@ -54,17 +48,17 @@ function validate(values) {
     const errors ={};
     //redux looks at properties on error object and it matches one of the fields, redux will automatically send it as prop
     //to our component
-    if(!values.postTitle) {
-        errors.postTitle = 'Cannot be left blank';
-    }
-    if(!values.postBody) {
-        errors.postBody = 'Cannot be left blank';
-    }
+    _.each(formFields, ({ name }) => {
+        if(!values[name])
+            errors[name] = 'Cannot be left blank';
+    })
     return errors;
 }
 
 export default reduxForm({
     validate,
     //'form' property is necessary
-    form: 'PostForm'
+    form: 'PostForm',
+    //set to false to save redux form inputs from being destroyed when moving on to review page
+    destroyOnUnmount: false
 })(PostForm);

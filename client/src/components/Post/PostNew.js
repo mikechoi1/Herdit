@@ -16,7 +16,7 @@ class PostNew extends Component {
 
     renderContent() {
         if(this.state.showFormReview)
-            return <PostFormReview />
+            return <PostFormReview onCancel={() => this.setState({showFormReview : false})}/>
         // when user submits post form, the PostFormReview will be shown instead
         return <PostForm onPostSubmit={() => this.setState({showFormReview : true})} />
     }

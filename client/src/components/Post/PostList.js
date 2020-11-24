@@ -9,17 +9,19 @@ class PostList extends Component {
         this.props.fetchPosts();
     }
     renderPosts() {
-        return <div>
-            {this.props.posts.reverse().map((post, i) => (
-            <Post key={i}
-                title = {post.title}
-                subpage = {post.subpage}
-                user = {post.username}
-                rating = {post.rating}
-                last_edited = {new Date(post.last_edited).toLocaleString()}
-            />
-            ))}
-        </div>;
+        return (
+            <div>
+                {this.props.posts.reverse().map((post, i) => (
+                <Post key={i}
+                    title = {post.title}
+                    subpage = {post.subpage}
+                    user = {post.username}
+                    rating = {post.rating}
+                    last_edited = {new Date(post.last_edited).toLocaleString()}
+                />
+                ))}
+            </div>
+        );
     }
 
     render() {
