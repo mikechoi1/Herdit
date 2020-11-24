@@ -1,9 +1,14 @@
 const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(
     cookieSession({
         //how long til expiration: 30 days
@@ -21,8 +26,8 @@ require('./routes/postRoutes')(app);
 
 const pool = require('./services/db');
 
-//middleware
-app.use(express.json()); //let's us use req.body
+// //middleware
+// app.use(express.json()); //let's us use req.body
 
 //Routes
 //test route for heroku postgres (delete later)
