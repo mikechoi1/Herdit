@@ -1,5 +1,6 @@
 //PostNew shows PostForm and PostFormReview
 import React, { Component } from 'react';
+import { reduxForm } from 'redux-form';
 
 import PostForm from './PostForm';
 import PostFormReview from './PostFormReview';
@@ -29,4 +30,7 @@ class PostNew extends Component {
         );
     }
 }
-export default PostNew;
+//need reduxForm to remove redux form values when user cancels the form creation or navigates elsewhere
+export default reduxForm({
+    form: 'PostForm'
+})(PostNew);
