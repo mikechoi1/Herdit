@@ -2,10 +2,11 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import formFields from './formFields';
 import * as actions from '../../actions';
-
-const PostFormReview = ({ onCancel, formValues, createPost }) => {
+                                                            //history from react router
+const PostFormReview = ({ onCancel, formValues, createPost, history }) => {
     const reviewFields = _.map(formFields, ({ name }) => {
         return (
             <div key={name}>
@@ -21,7 +22,7 @@ const PostFormReview = ({ onCancel, formValues, createPost }) => {
                 {reviewFields}
             </div>
             <button onClick={onCancel}>Back</button>
-            <button onClick={() => createPost(formValues)}>Create Post</button>
+            <button onClick={() => createPost(formValues, history)}>Create Post</button>
         </div>
     );
 }
@@ -30,4 +31,4 @@ function mapStateToProps(state) {
     return { formValues: state.form.PostForm.values };
 }
 
-export default connect(mapStateToProps, actions)(PostFormReview);
+export default connect(mapStateToProps, actions)(withRouter(PostFormReview));

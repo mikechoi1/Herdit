@@ -12,7 +12,12 @@ class Homepage extends Component {
             case false:
                 return <h1 style={{textAlign: 'center'}}>Welcome to Herdit</h1>;
             default:
-                return <h1>Hi, {this.props.auth.displayname}</h1>
+                return (
+                    <div>
+                        <h1>Hi, {this.props.auth.displayname}</h1>
+                        <div style={{marginBottom: '25px'}}><Link to='/posts/add' className='link' style={{border: '1px solid white', borderRadius: '5px', padding: '7px'}}>Add Post</Link></div>
+                    </div>
+                );
         }
     }
 
@@ -20,7 +25,6 @@ class Homepage extends Component {
         return (
             <div style={{height: '1000px', background: '#121212', padding: '60px 20px 0 20px', color: 'white'}}>
                 {this.renderContent()}
-                <div style={{marginBottom: '25px'}}><Link to='/posts/add' className='link' style={{border: '1px solid white', borderRadius: '5px', padding: '7px'}}>Add Post</Link></div>
                 <PostList />
             </div>
         );
