@@ -15,7 +15,7 @@ class Homepage extends Component {
                 return (
                     <div>
                         <h1>Hi, {this.props.auth.displayname}</h1>
-                        <div style={{marginBottom: '25px'}}><Link to='/posts/add' className='link' style={{border: '1px solid white', borderRadius: '5px', padding: '7px'}}>Add Post</Link></div>
+                        <div style={{marginBottom: '25px'}}><Link to='/posts/add' className='link simple-border'>Add Post</Link></div>
                     </div>
                 );
         }

@@ -28,13 +28,13 @@ class PostForm extends Component {
 
     render() {
         return(
-            <div style={{height: '1000px', background: '#121212', padding: '70px 20px 0 20px', color: 'white'}}>
+            <div style={{height: '1000px', background: '#121212', padding: '70px 20px 0 20px', color: '#F5F6F7'}}>
                 {/* handleSubmit is given by reduxForm and will run the function we give it whenever we submit the form */}
                 <div>Creating a New Post</div>
                                                         {/* () => function() === function */}
                 <form onSubmit={this.props.handleSubmit(this.props.onPostSubmit)}>
                     {this.renderFields()}
-                    <Link to='/' className='link' style={{border: '1px solid white', borderRadius: '3px'}}>
+                    <Link to='/' className='link simple-border'>
                         Cancel
                     </Link>
                     <button type='submit'>Review</button>
