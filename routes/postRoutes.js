@@ -16,9 +16,10 @@ module.exports = app => {
             const { postTitle, postBody } = req.body;
             //posts table currently does not have a column for postBody
             const subpage = '/h/all';
+            const userId = req.user.id;
             const username = req.user.displayname;
             const rating = 0;
-            const newPost = await pool.query("INSERT INTO posts (title, subpage, username, rating) VALUES($1, $2, $3, $4) RETURNING *", [postTitle, subpage, username, rating]);
+            const newPost = await pool.query("INSERT INTO posts (title, subpage, username, rating, user_id) VALUES($1, $2, $3, $4, $5) RETURNING *", [postTitle, subpage, username, rating, userId]);
             res.send(newPost.rows);
         } catch (err) {
             console.log(err.message);

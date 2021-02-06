@@ -31,7 +31,7 @@ export const fetchPosts = () => async dispatch => {
     postBody: '------'
 }*/
 export const createPost = (values, history) => async dispatch => {
-    console.log(values);
+    console.log('actions/index.js: ', values);
     const res = await axios.post('/api/posts', values);
     history.push('/');
     dispatch({ type: FETCH_POSTS, payload: res.data });
