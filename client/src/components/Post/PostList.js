@@ -18,6 +18,7 @@ class PostList extends Component {
                     user = {post.username}
                     rating = {post.rating}
                     last_edited = {new Date(post.last_edited).toLocaleString()}
+                    userId = {post.user_id}
                 />
                 ))}
             </div>

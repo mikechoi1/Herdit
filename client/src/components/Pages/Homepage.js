@@ -23,13 +23,14 @@ class Homepage extends Component {
 
     render() {
         return (
-            <div style={{height: '1000px', background: '#121212', padding: '60px 20px 0 20px', color: 'white'}}>
+            <div style={{padding: '60px 20px 0 20px', color: 'white'}}>
                 {this.renderContent()}
                 <PostList />
             </div>
         );
     }
 }
+//auth stores all entries from user database
 function mapStateToProps({ auth }) {
     return { auth };
 }

@@ -23,9 +23,9 @@ class Header extends Component {
                 return;
             case false:
                 return (
-                        <div className='logo-box'>
-                            <a href="/auth/google" className='link logo-text'>Login With Google</a>
-                        </div>
+                    <div className='logo-box'>
+                        <a href="/auth/google" className='link logo-text'>Login With Google</a>
+                    </div>
                 );
             default:
                 return (
@@ -61,7 +61,6 @@ class Header extends Component {
         );
     }
 }
-
 function mapStateToProps({ auth }) {
     return { auth };
 }

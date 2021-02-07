@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './Post.css';
 
 class Post extends Component {
+    renderDelete() {
+        if(this.props.auth && this.props.auth.id === this.props.userId)
+            return(
+                /* -----------INLINE STYLING FOR TESTING, REFACTOR LATER----------- */
+                <div style={{alignSelf: 'center', marginLeft: 'auto', marginRight: '1rem', float: 'right'}}>
+                    <svg className='nav-icon trash-icon'>
+                        <use href='/img/sprite.svg#icon-trash'/>
+                    </svg>
+                </div>
+            );
+    }
     render() {
         const { title, subpage, user, rating, last_edited } = this.props;
         return (
@@ -25,8 +37,12 @@ class Post extends Component {
                     </div>
                     <div className='post-comment'>0 Comments</div>
                 </div>
+                {this.renderDelete()}
             </div>
         );
     }
 }
-export default Post;
+function mapStateToProps({ auth }) {
+    return { auth };
+}
+export default connect(mapStateToProps)(Post);

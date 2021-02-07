@@ -31,8 +31,14 @@ export const fetchPosts = () => async dispatch => {
     postBody: '------'
 }*/
 export const createPost = (values, history) => async dispatch => {
-    console.log('actions/index.js: ', values);
+    console.log('actions/index.js:createPost: ', values);
     const res = await axios.post('/api/posts', values);
     history.push('/');
     dispatch({ type: FETCH_POSTS, payload: res.data });
+}
+
+export const deletePost = (value) => async dispatch => {
+    console.log('actions/index.js:deletePost: ', value);
+    const res = await axios.delete('/api/delete', value);
+    dispatch({ type: FETCH_POSTS, payload: res.data});
 }

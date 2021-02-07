@@ -25,4 +25,15 @@ module.exports = app => {
             console.log(err.message);
         }
     });
+
+    app.delete('/api/post/', async (req, res) => {
+        try {
+            
+            const { postId } = req.body;
+            const updatedPosts = await pool.query("DELET FROM posts WHERE user_id=$1 RETURNING *", [postId]);
+            res.send(updatedPosts.rows);
+        } catch (err) {
+            console.log(err);
+        }
+    })
 };

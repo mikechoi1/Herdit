@@ -63,3 +63,13 @@ nav div {
     justify-content: center;
     align-items: center;
 }
+/* for trash icon in Post.js */
+.trash-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: #D7DADC;
+    padding: 0.2rem;
+}
+.trash-icon:hover {
+    fill: crimson;
+}
