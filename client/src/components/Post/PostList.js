@@ -13,6 +13,7 @@ class PostList extends Component {
             <div>
                 {this.props.posts.reverse().map((post, i) => (
                 <Post key={i}
+                    postId = {post.id}
                     title = {post.title}
                     subpage = {post.subpage}
                     user = {post.username}

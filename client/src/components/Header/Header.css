@@ -68,8 +68,12 @@ nav div {
     height: 1.5rem;
     width: 1.5rem;
     fill: #D7DADC;
-    padding: 0.2rem;
 }
-.trash-icon:hover {
+.btn-invis {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+.btn-invis:hover .trash-icon {
     fill: crimson;
 }

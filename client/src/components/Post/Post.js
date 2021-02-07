@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 import './Post.css';
 
 class Post extends Component {
     renderDelete() {
+        const values = {
+            postId: this.props.postId,
+            userId: this.props.userId
+        }
         if(this.props.auth && this.props.auth.id === this.props.userId)
             return(
                 /* -----------INLINE STYLING FOR TESTING, REFACTOR LATER----------- */
                 <div style={{alignSelf: 'center', marginLeft: 'auto', marginRight: '1rem', float: 'right'}}>
-                    <svg className='nav-icon trash-icon'>
-                        <use href='/img/sprite.svg#icon-trash'/>
-                    </svg>
+                    <button onClick = {() => this.props.deletePost(values)} className='btn-invis'>
+                        <svg className='trash-icon'>
+                            <use href='/img/sprite.svg#icon-trash'/>
+                        </svg>
+                    </button>
                 </div>
             );
     }
@@ -45,4 +52,4 @@ class Post extends Component {
 function mapStateToProps({ auth }) {
     return { auth };
 }
-export default connect(mapStateToProps)(Post);
+export default connect(mapStateToProps, actions)(Post);

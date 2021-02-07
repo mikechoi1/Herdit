@@ -1,5 +1,6 @@
 const pool = require('../services/db');
 const requireLogin = require('../middlewares/requireLogin');
+const postDeletePermission = require('../middlewares/postDeletePermission');
 
 module.exports = app => {
     app.get('/api/posts', async (req, res) => {
@@ -26,12 +27,12 @@ module.exports = app => {
         }
     });
 
-    app.delete('/api/post/', async (req, res) => {
+    app.delete('/api/post/:postId/:userId', postDeletePermission, async (req, res) => {
         try {
-            
-            const { postId } = req.body;
-            const updatedPosts = await pool.query("DELET FROM posts WHERE user_id=$1 RETURNING *", [postId]);
-            res.send(updatedPosts.rows);
+            const { postId } = req.params;
+            await pool.query("DELETE FROM posts WHERE id=$1", [postId]);
+            const posts = await pool.query('SELECT * FROM posts');
+            res.send(posts.rows);
         } catch (err) {
             console.log(err);
         }

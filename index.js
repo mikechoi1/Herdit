@@ -26,9 +26,6 @@ require('./routes/postRoutes')(app);
 
 const pool = require('./services/db');
 
-// //middleware
-// app.use(express.json()); //let's us use req.body
-
 //Routes
 //test route for heroku postgres (delete later)
 app.get('/db', async (req, res) => {

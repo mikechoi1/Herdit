@@ -16,7 +16,7 @@ const PostFormReview = ({ onCancel, formValues, createPost, history }) => {
     })
 
     return (
-        <div style={{height: '1000px', background: '#121212', padding: '70px 20px 0 20px', color: 'white'}}>
+        <div style={{padding: '70px 20px 0 20px', color: 'white'}}>
             <h5>Please confirm your entries</h5>
             <div>
                 {reviewFields}

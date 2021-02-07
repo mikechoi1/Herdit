@@ -37,8 +37,8 @@ export const createPost = (values, history) => async dispatch => {
     dispatch({ type: FETCH_POSTS, payload: res.data });
 }
 
-export const deletePost = (value) => async dispatch => {
-    console.log('actions/index.js:deletePost: ', value);
-    const res = await axios.delete('/api/delete', value);
+export const deletePost = (values) => async dispatch => {
+    console.log('actions/index.js:deletePost: ', values);
+    const res = await axios.delete(`/api/post/${values.postId}/${values.userId}`);
     dispatch({ type: FETCH_POSTS, payload: res.data});
 }
